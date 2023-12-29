@@ -9,10 +9,12 @@
       evil-want-fine-undo t                      ; by default, while in =insert= all changes are one big blob. Be more granular
       auto-save-default t                        ; I have lost too much code to not have this enabled
       which-key-idle-delay 0.3                   ; be pushier with suggestions
-      which-key-idle-secondary-delay 0)
+      which-key-idle-secondary-delay 0
       ; shell-file-name (executable-find "sh")     ; sh for shpeed
       ; vterm-shell (executable-find "fish")       ; use fish in vterm ~>
-      ; explicit-shell-file-name (executable-find "fish"))
+      ; explicit-shell-file-name (executable-find "fish")
+      mastodon-instance-url "https://emacs.ch"
+      mastodon-active-user "n3k0lai")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -62,6 +64,7 @@
 (after! projectile
   (setq projectile-project-root-files-bottom-up '("package.json" ".projectile" ".project" ".git")
         projectile-project-search-path '("~/.doom.d" "~/Code" "~/Org" "~/Code/dotfiles" "~/Code/n3k0lai.github.io" "~/Code/ene" "~/Code/golf")))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
