@@ -1,13 +1,18 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+;;; config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+(setq user-full-name "Nicholai"
+      user-mail-address "theguy@itsnicholai.fyi"
+      command-line-default-directory "~/"        ; set default directory to home
+      +doom-dashboard-pwd-policy "~/"
+      default-directory "~/"
+      undo-limit 80000000                        ; raise undo-limit to 80mb
+      evil-want-fine-undo t                      ; by default, while in =insert= all changes are one big blob. Be more granular
+      auto-save-default t                        ; I have lost too much code to not have this enabled
+      which-key-idle-delay 0.3                   ; be pushier with suggestions
+      which-key-idle-secondary-delay 0)
+      ; shell-file-name (executable-find "sh")     ; sh for shpeed
+      ; vterm-shell (executable-find "fish")       ; use fish in vterm ~>
+      ; explicit-shell-file-name (executable-find "fish"))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -34,19 +39,13 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
 
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
-;; because I use fish ~>
-(setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shell (executable-find "fish"))
-(setq-default explicit-shell-file-name (executable-find "fish"))
+(setq org-directory "~/Org/")
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
@@ -57,6 +56,12 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
+(after! org
+  (super-save-mode +1))
+
+(after! projectile
+  (setq projectile-project-root-files-bottom-up '("package.json" ".projectile" ".project" ".git")
+        projectile-project-search-path '("~/.doom.d" "~/Code" "~/Org" "~/Code/dotfiles" "~/Code/n3k0lai.github.io" "~/Code/ene" "~/Code/golf")))
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
