@@ -84,9 +84,9 @@
 
        :checkers
        (syntax +childframe); tasing you for every semicolon you forget
-       (spell +enchant)    ; tasing you for misspelling mispelling
-       (grammar            ; tasing grammar mistake every you make
-        +childframe)
+       ;;(spell +aspell)   ; tasing you for misspelling mispelling
+       ;; (grammar         ; tasing grammar mistake every you make
+       ;;  +childframe)
 
        :tools
        ;;ansible
