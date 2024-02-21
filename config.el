@@ -62,7 +62,7 @@
 
 (after! org
   (after! hl-todo
-    (setq hl-todo-keyword-faces
+    (setq org-todo-keyword-faces
           `(("INHALE"  . ,(doom-color 'green))
             ("EXHALE"  . ,(doom-color 'red))
             ("TODO"  . ,(doom-color 'orange))

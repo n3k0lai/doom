@@ -168,12 +168,15 @@
         +habit             ; keep track of your habits
         +present           ; emacs for presentations
         +journal           ;
+        +hugo              ;
+        +roam2             ;
         +protocol          ; support for org-protocol:// links
         +pretty)           ; prettify org mode
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       ;;python            ; beautiful is better than ugly
+       (python +lsp        ; beautiful is better than ugly
+               +pyenv)
        qt                  ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
@@ -190,7 +193,7 @@
        ;;terra             ; Earth and Moon in alignment for performance.
        (web +lsp
             +tree-sitter)  ; the tubes
-       ;;yaml              ; JSON, but readable
+       (yaml +lsp)         ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
