@@ -1,11 +1,7 @@
 ;;; config.el -*- lexical-binding: t; -*-
-(setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shell (executable-find "fish"))
-(setq-default explicit-shell-file-name (executable-find "fish"))
-
 
 (setq user-full-name "Nicholai"
-      user-mail-address "theguy@itsnicholai.fyi"
+      user-mail-address "nicholai@comfy.sh"
       command-line-default-directory "~/"        ; set default directory to home
       +doom-dashboard-pwd-policy "~/"
       default-directory "~/"
@@ -19,10 +15,6 @@
       explicit-shell-file-name (executable-find "fish")
       mastodon-instance-url "https://emacs.ch"
       mastodon-active-user "n3k0lai")
-
-(setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shell (executable-find "fish"))
-(setq-default explicit-shell-file-name (executable-find "fish"))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -69,13 +61,29 @@
 (add-to-list 'warning-suppress-types '(copilot copilot-no-mode-indent))
 
 (after! org
+  (after! hl-todo
+    (setq hl-todo-keyword-faces
+          `(("INHALE"  . ,(doom-color 'green))
+            ("EXHALE"  . ,(doom-color 'red))
+            ("TODO"  . ,(doom-color 'orange))
+            ("HACK"  . ,(doom-color 'orange))
+            ("TEMP"  . ,(doom-color 'orange))
+            ("DONE"  . ,(doom-color 'green))
+            ("NOTE"  . ,(doom-color 'green))
+            ("DONT"  . ,(doom-color 'red))
+            ("DEBUG"  . ,(doom-color 'red))
+            ("FAIL"  . ,(doom-color 'red))
+            ("FIXME" . ,(doom-color 'red))
+            ("XXX"   . ,(doom-color 'blue))
+            ("XXXX"  . ,(doom-color 'blue)))))
   (super-save-mode +1))
 
 (after! projectile
   (setq projectile-project-root-files-bottom-up '("package.json" ".projectile" ".project" ".git")
         projectile-project-search-path '("~/.doom.d" "~/Code" "~/Org" "~/Code/dotfiles" "~/Code/n3k0lai.github.io" "~/Code/ene" "~/Code/golf"))
   (setq projectile-project-root-files-bottom-up (remove ".git"
-          projectile-project-root-files-bottom-up)))
+                                                        projectile-project-root-files-bottom-up)))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
