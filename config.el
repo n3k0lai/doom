@@ -61,21 +61,29 @@
 (add-to-list 'warning-suppress-types '(copilot copilot-no-mode-indent))
 
 (after! org
-  (after! hl-todo
-    (setq org-todo-keyword-faces
-          `(("INHALE"  . ,(doom-color 'green))
-            ("EXHALE"  . ,(doom-color 'red))
-            ("TODO"  . ,(doom-color 'orange))
-            ("HACK"  . ,(doom-color 'orange))
-            ("TEMP"  . ,(doom-color 'orange))
-            ("DONE"  . ,(doom-color 'green))
-            ("NOTE"  . ,(doom-color 'green))
-            ("DONT"  . ,(doom-color 'red))
-            ("DEBUG"  . ,(doom-color 'red))
-            ("FAIL"  . ,(doom-color 'red))
-            ("FIXME" . ,(doom-color 'red))
-            ("XXX"   . ,(doom-color 'blue))
-            ("XXXX"  . ,(doom-color 'blue)))))
+  (setq
+   org-todo-keywords
+   `((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "|" "DONE(d)" "KILL(k)")
+     (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
+     (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")
+     (sequence "EXHALE" "INHALE" "BREATH" "|")
+     (sequence "|" "WATER BREAK"))
+   org-todo-keyword-faces
+   `(("INHALE"  . ,(doom-color 'green))
+     ("EXHALE"  . "#FA2828")
+     ("BREATH"   . "#979797")
+     ("WATER BREAK" . "#1E69FF")
+     ("TODO"  . ,(doom-color 'orange))
+     ("HACK"  . ,(doom-color 'orange))
+     ("TEMP"  . ,(doom-color 'orange))
+     ("DONE"  . ,(doom-color 'green))
+     ("NOTE"  . ,(doom-color 'green))
+     ("DONT"  . ,(doom-color 'red))
+     ("DEBUG"  . ,(doom-color 'red))
+     ("FAIL"  . ,(doom-color 'red))
+     ("FIXME" . ,(doom-color 'red))
+     ("XXX"   . ,(doom-color 'blue))
+     ("XXXX"  . ,(doom-color 'blue))))
   (super-save-mode +1))
 
 (after! projectile
