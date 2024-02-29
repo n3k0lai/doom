@@ -169,7 +169,6 @@
        (org                ; organize your plain life in plain text
         +habit             ; keep track of your habits
         +present           ; emacs for presentations
-        +journal           ;
         +hugo              ;
         +roam2             ;
         +protocol          ; support for org-protocol:// links
